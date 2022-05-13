@@ -1,0 +1,18 @@
+Security rules for Firebase
+
+```
+{
+  "rules": {
+    ".read": "auth != null",
+    ".write": false,
+    "players": {
+      "$uid": {
+        ".write": "auth != null && auth.uid == $uid"
+      }
+    },
+    "coins": {
+        ".write": "auth != null"
+    }
+  }
+}
+```
